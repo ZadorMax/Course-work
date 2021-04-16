@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" href = "style.css"/>
+        <title>Drugs</title>
+    </head>
+
+    <body>
+        <div class = "grid-container">
+            <header class ="header">
+                <div class = "brand">
+                    <button onClick="openMenu()">
+                        &#9776;
+                    </button>
+                    <a href="index.html">Drugs</a>
+                </div>
+                <div class ="header-links">
+                    <a href="cart.html">Cart</a>
+                    <a href="singin.html">SignIn</a>
+                </div>
+            </header>
+            
+            <aside class="sidebar">
+                <h3>Shopping Categories</h3>
+                <button class="sidebar-close-button" onClick="closeMenu()">X</button>
+                <ul>
+                    <li>
+                        <a href="index.html">Medicaments</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Cosmetics</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Hygiene</a>
+                    </li>
+                </ul>
+            </aside>
+            
+            <main class = "main">
+                <div class="content">
+                    <ul class="products">
+
+                        <li>
+                            <div class="product">
+                                <img src = "images/d1.jpg" alt="product">
+                                <div class = "product-name">
+                                    <a href ="product.html">Pill1</a>
+                                </div>
+                                <div class="product-brand">Darnytsa</div>
+                                <div class="product-price">100</div>
+                                <div class="product-rating">4 stars</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img src = "images/d1.jpg" alt="product">
+                                <div class = "product-name">
+                                    <a href ="product.html">Pill1</a>
+                                </div>
+                                <div class="product-brand">Darnytsa</div>
+                                <div class="product-price">100</div>
+                                <div class="product-rating">4 stars</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img src = "images/d1.jpg" alt="product">
+                                <div class = "product-name">
+                                    <a href ="product.html">Pill1</a>
+                                </div>
+                                <div class="product-brand">Darnytsa</div>
+                                <div class="product-price">100</div>
+                                <div class="product-rating">4 stars</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img src = "images/d1.jpg" alt="product">
+                                <div class = "product-name">
+                                    <a href ="product.html">Pill1</a>
+                                </div>
+                                <div class="product-brand">Darnytsa</div>
+                                <div class="product-price">100</div>
+                                <div class="product-rating">4 stars</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product">
+                                <img src = "images/d1.jpg" alt="product">
+                                <div class = "product-name">
+                                    <a href ="product.html">Pill1</a>
+                                </div>
+                                <div class="product-brand">Darnytsa</div>
+                                <div class="product-price">100</div>
+                                <div class="product-rating">4 stars</div>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </main>
+            <footer class = "footer">
+                All rights reserved
+            </footer>
+        </div>
+
+        <script>
+            function openMenu(){
+                document.querySelector(".sidebar").classsList.add("open");
+            }
+            function closeMenu(){
+                document.querySelector(".sidebar").classsList.remove("open");
+            }
+        </script>
+
+    </body>
+</html>
