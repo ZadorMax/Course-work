@@ -181,14 +181,12 @@ a > .rating > span:last-child {
 
 .details-image{
   flex: 2 1 60rem;
-
 }
 
 .details-image img{
   max-width: 60rem;
   widows:100%;
-
-} img
+} 
 
 .details-info{
   flex: 1 1 30rem;

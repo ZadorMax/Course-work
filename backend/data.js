@@ -29,7 +29,7 @@ export default {
     },
     {
         _id:'4',
-        name: "Toothbrush1",
+        name: "Toothbrush2",
         catgory: 'Hygiene',
         image:'/images/d1.jpg',
         price:30,
