@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { signin } from '../actions/userActions';
+import { signin } from '../actions/actionUser';
 
-export default function SigninScreen(props) {
+function SigninScreen(props) {
     
     const userSignin = useSelector((state) => state.userSignin);
     const {userInfo, loading, error} = userSignin;  
@@ -32,11 +32,11 @@ export default function SigninScreen(props) {
         <div>
             <form className="form" onSubmit={submitHandler}>
                 <div>
-                    <h1>Sign In</h1>
+                    <h1>Увійти в акаунт</h1>
                 </div>
                 
                 <div>
-                    <label htmlFor="email">Email address</label>
+                    <label htmlFor="email">Почтова скринька</label>
                     <input
                         type="email"
                         id="email"
@@ -46,7 +46,7 @@ export default function SigninScreen(props) {
                     ></input>
                 </div>
                 <div>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Пароль</label>
                     <input
                         type="password"
                         id="password"
@@ -58,15 +58,15 @@ export default function SigninScreen(props) {
                 <div>
                     <label />
                     <button className="primary button" type="submit">
-                        Sign In
+                        Увійти
           </button>
                 </div>
                 <div>
                     <label />
                     <div>
-                    New customer?{' '}
+                    Ще не має акаунту?{' '}
             <Link to={`/register?redirect=${redirect}`}>
-              Create your account
+              Створити акаунт
             </Link>
                     </div>
                 </div>
@@ -74,3 +74,4 @@ export default function SigninScreen(props) {
         </div>
     );
 }
+export default SigninScreen;

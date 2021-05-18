@@ -3,7 +3,8 @@ import User from '../models/userModel';
 import data from '../data';
 import expressAsyncHandler from 'express-async-handler';
 import bcrypt from 'bcryptjs';
-import { generateToken } from '../utils';
+import { getToken } from '../utils.js';
+
 
 const userRouter = express.Router();
 
@@ -22,7 +23,7 @@ userRouter.post('/signin',expressAsyncHandler(async (req, res) =>{
               name: user.name,
               email: user.email,
               isAdmin: user.isAdmin,
-              token: generateToken(user),
+              token: getToken(user),
             });
             return;
       }
@@ -44,7 +45,7 @@ userRouter.post('/register',
         name: createdUser.name,
         email: createdUser.email,
         isAdmin: createdUser.isAdmin,
-        token: generateToken(createdUser),
+        token: getToken(createdUser),
       });
     }));
 

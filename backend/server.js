@@ -1,8 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import userRouter from './routers/userRouter.js';
-import productRouter from './routers/productRouter';
+import userRouter from './routers/routUser.js';
+import productRouter from './routers/routProd';
+import orderRouter from './routers/routOrder.js';
 
 dotenv.config();
 
@@ -24,7 +25,15 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/drug-store',
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
+app.use('/api/orders', orderRouter);
 
+app.get('/api/config/paypal', (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+});
+
+app.get('/', (req, res) => {
+  res.send('Server is ready');
+});
 
 // app.get("/api/products/:id",(req, res) => {
 //     const productId = req.params.id;

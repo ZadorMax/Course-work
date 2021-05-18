@@ -1,22 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addToCart, removeFromCart } from '../actions/cartActions';
+import { addToCart, removeFromCart } from '../actions/actionCart';
 function CartScreen(props) {
-
+    const productId = props.match.params.id;
     const cart = useSelector(state => state.cart);
     const {cartItems} = cart;
 
-    const productId = props.match.params.id;
     const qty = props.location.search ? Number(props.location.search.split("=")[1]) : 1;
+    
     const dispatch = useDispatch();
-
     const removeFromCartHandler = (id) =>{
             dispatch(removeFromCart(id));
     }
 
     const checkoutHandler = () =>{
-        props.history.push("/signin?redirect=payment");
+        props.history.push("/signin?redirect=shipping");
     }
 
     useEffect(() => {
@@ -30,7 +29,7 @@ function CartScreen(props) {
             <ul className="cart-list-container">
                 <li>
                     <h3>
-                        Shopping Cart
+                        Кошик
                     </h3>
                     <div>
                         Price
@@ -39,7 +38,7 @@ function CartScreen(props) {
                 {
                     cartItems.length ===0 ?
                     <div>
-                        Cart is empty
+                        Кошик порожній
                     </div>
                     :
                     cartItems.map( item =>
@@ -75,12 +74,12 @@ function CartScreen(props) {
         </div>
         <div className="cart-action">
             <h3>
-               Total ({cartItems.reduce((a,c) => a + c.qty,0)} items)
+               Всього ({cartItems.reduce((a,c) => a + c.qty,0)} items)
                :
                 $ {cartItems.reduce((a,c) => a + c.price * c.qty,0)}
             </h3>
             <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
-                Checkout
+                Оформити замовлення
             </button>
             
         </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { detailsProduct } from '../actions/productActions';
+import { detailsProduct } from '../actions/actionProd';
 function ProductScreen(props) {
     const productDetails = useSelector(state => state.productDetails);
     const { product, loading, error } = productDetails;
@@ -24,7 +24,7 @@ function ProductScreen(props) {
     return (
         <div>
             <div className="back-to-result">
-                <Link to="/">Back to result</Link>
+                <Link to="/">Повернутись</Link>
             </div>
             {loading ? (
                 <div>Loading...</div>
@@ -41,17 +41,12 @@ function ProductScreen(props) {
                                 <h4>{product.name}</h4>
                             </li>
                             <li>
-                                {product.numReviews} Reviews
+                                {product.numReviews} Відгуки
                                     </li>
                             <li>
-                                <b>Price ${product.price}</b>
+                                <b>Ціна ${product.price}</b>
                             </li>
-                            <li>
-                                Description:
-                                        <div>
-                                    <b>{product.description}</b>
-                                </div>
-                            </li>
+                            
 
 
                         </ul>
@@ -59,13 +54,13 @@ function ProductScreen(props) {
                     <div className="details-action">
                         <ul>
                             <li>
-                                Price: {product.price}
+                                PЦіна: {product.price}
                             </li>
                             <li>
-                                Status: {product.countInStock>0? "In Stock": "Out of Stock"}
+                                Статус: {product.countInStock>0? "In Stock": "Out of Stock"}
                             </li>
                             <li>
-                                Quantity: <select value={qty} onChange={(e) => {setQty(e.target.value)}}>
+                                Кількість: <select value={qty} onChange={(e) => {setQty(e.target.value)}}>
                                     {[...Array(product.countInStock).keys()].map(x=>
                                       <option key={x+1} value={x+1}>{x+1}</option>
                                       )}

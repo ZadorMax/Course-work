@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { register } from '../actions/userActions';
+import { register } from '../actions/actionUser';
 
-export default function RegisterScreen(props) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+function RegisterScreen(props) {
 
   const redirect = props.location.search
     ? props.location.search.split('=')[1]
     : '/';
-
+  
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const userRegister = useSelector((state) => state.userRegister);
   const { userInfo, loading, error } = userRegister;
 
@@ -34,11 +34,11 @@ export default function RegisterScreen(props) {
     <div>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Create Account</h1>
+          <h1>Створити акаунтt</h1>
         </div>
     
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Імя</label>
           <input
             type="text"
             id="name"
@@ -48,7 +48,7 @@ export default function RegisterScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="email">Email address</label>
+          <label htmlFor="email">Почтова скринька</label>
           <input
             type="email"
             id="email"
@@ -58,7 +58,7 @@ export default function RegisterScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Пароль</label>
           <input
             type="password"
             id="password"
@@ -68,7 +68,7 @@ export default function RegisterScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="confirmPassword">Confirm Password</label>
+          <label htmlFor="confirmPassword">Підтвердити пароль</label>
           <input
             type="password"
             id="confirmPassword"
@@ -80,13 +80,13 @@ export default function RegisterScreen(props) {
         <div>
           <label />
           <button className="primary" type="submit">
-            Register
+            Зареєструватися
           </button>
         </div>
         <div>
           <label />
           <div>
-            Already have an account?{' '}
+            Вже наявний акаунт?{' '}
             <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>
           </div>
         </div>
@@ -94,3 +94,4 @@ export default function RegisterScreen(props) {
     </div>
   );
 }
+export default RegisterScreen;
